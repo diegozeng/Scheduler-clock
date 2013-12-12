@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<PROJECT DESCRIPTION="">
+ <KEYWORDS/>
+ <FILES>
+  <FILE GROUP="Design Files" NAME="Sch.dsn"/>
+  <FILE GROUP="Source Files" NAME="Main.c"/>
+  <FILE GROUP="Source Files" NAME="Swit_D.c"/>
+  <FILE GROUP="Source Files" NAME="Disp.c"/>
+  <FILE GROUP="Header Files" NAME="Swit_D.h"/>
+  <FILE GROUP="Source Files" NAME="2_01_12g.c"/>
+  <FILE GROUP="Source Files" NAME="Sch51.c"/>
+  <FILE GROUP="Header Files" NAME="2_01_12g.h"/>
+  <FILE GROUP="Header Files" NAME="Disp.h"/>
+  <FILE GROUP="Header Files" NAME="Main.h"/>
+  <FILE GROUP="Header Files" NAME="PORT.H"/>
+  <FILE GROUP="Header Files" NAME="Sch51.h"/>
+ </FILES>
+ <CONFIGURATION TARGET="Debug" COMPILER="Keil for 8051" NAME="Debug">
+  <CONTROLLER FAMILY="8051" CLOCK="24MHz" TYPE="AT89C52"/>
+  <FILE TOOL="LD" NAME="Debug/Debug.OMF">
+   <FILE TOOL="CC" NAME="Debug/Main.OBJ">
+    <FILE NAME="Main.c"/>
+   </FILE>
+   <FILE TOOL="CC" NAME="Debug/Swit_D.OBJ">
+    <FILE NAME="Swit_D.c"/>
+   </FILE>
+   <FILE TOOL="CC" NAME="Debug/Disp.OBJ">
+    <FILE NAME="Disp.c"/>
+   </FILE>
+   <FILE TOOL="CC" NAME="Debug/2_01_12g.OBJ">
+    <FILE NAME="2_01_12g.c"/>
+   </FILE>
+   <FILE TOOL="CC" NAME="Debug/Sch51.OBJ">
+    <FILE NAME="Sch51.c"/>
+   </FILE>
+  </FILE>
+  <FILE NAME="Sch.dsn"/>
+  <FILE NAME="Swit_D.h"/>
+  <FILE NAME="2_01_12g.h"/>
+  <FILE NAME="Main.h"/>
+  <FILE NAME="PORT.H"/>
+  <FILE NAME="Sch51.h"/>
+  <FILE NAME="Disp.h"/>
+  <OPTION TOOL="CC" NAME="ROM(" VALUE="COMPACT)"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="BROWSE"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="DEBUG"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="CODE"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="OBJECTEXTEND"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="PREPRINT"/>
+ </CONFIGURATION>
+ <CONFIGURATION TARGET="Release" COMPILER="Keil for 8051" NAME="Release">
+  <CONTROLLER FAMILY="8051" CLOCK="12MHz" TYPE="AT89C52"/>
+  <FILE TOOL="LD">
+   <FILE TOOL="CC">
+    <FILE NAME="Main.c"/>
+   </FILE>
+   <FILE TOOL="CC">
+    <FILE NAME="Swit_D.c"/>
+   </FILE>
+   <FILE TOOL="CC">
+    <FILE NAME="Disp.c"/>
+   </FILE>
+   <FILE TOOL="CC">
+    <FILE NAME="2_01_12g.c"/>
+   </FILE>
+   <FILE TOOL="CC">
+    <FILE NAME="Sch51.c"/>
+   </FILE>
+  </FILE>
+  <FILE NAME="Sch.dsn"/>
+  <FILE NAME="Swit_D.h"/>
+  <FILE NAME="2_01_12g.h"/>
+  <FILE NAME="Main.h"/>
+  <FILE NAME="PORT.H"/>
+  <FILE NAME="Sch51.h"/>
+  <FILE NAME="Disp.h"/>
+  <OPTION TOOL="CC" NAME="ROM(" VALUE="COMPACT)"/>
+ </CONFIGURATION>
+</PROJECT>
