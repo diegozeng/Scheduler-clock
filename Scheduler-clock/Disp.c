@@ -5,9 +5,16 @@
 #define uchar unsigned char
 #define uint unsigned int
 uchar shi,fen,miao,nian,yue,ri,zou,s1num,flag,checker;
+uchar j;
+uint i,s;
 uchar code table[]=" 2013-12-19 THU ";
 uchar code table1[]="    12:50:00    ";
 uchar code table2[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+uchar code keytable[]={0x7e,0x7d,0x7b,0x77,0xbe,0xbd,0xbb,0xb7,0xde,0xdd,0xdb,0xd7,0xee,0xed,0xeb,0xe7};
+//uchar code ptable[]={3825 3405 3034 2864 2551 2273 2025 1911 1703 1517 1432 1276 1136 1012 956 851};
+uchar code ptable[]={238, 212, 189, 178, 159, 141, 126, 119, 106, 94, 89, 79, 70, 63, 59, 53};
+uint code T[1]=31249;
+uchar rtable[9]={0xe7};	
 
 void delay(uint z)
     {
@@ -314,6 +321,9 @@ void DispUpdate()
         if(fen==60)
             {
             fen=0;
+	    prec=0;
+   	    playrec();
+      	    prec=1;
             shi++;
             if(shi==24)
 	        {
@@ -350,6 +360,107 @@ void DispUpdate()
 	write_sfm(10,miao);
     }
 }
+       void play(void)
+{		
+	unsigned char row, col, period, u, key;
+	beep=0;
+	P1=0xf0;
+	col=P1;
+	P1=0x0f;
+	row=P1;
+	key=col+row;
 
+	if (key!=0xff)
+	{
+		for (u=0;u<16;u++)
+		{
+			if (key==keytable[u])
+			{
+				period=ptable[u];
+				s=T[0]/period;
+			}
+		}	
+		for (i=0;i<s+1;i++)
+		{
+			beep=!beep;
+			sdelay(period);
+			sdelay(period);		  
+		}
+	}
+ }
+
+void sdelay(unsigned char k)
+{
+	for( ;k>0 ;k--) ;
+}
+
+
+void recmode(void)
+{
+	
+	if (rec==0)
+	{
+		recordon=!recordon;
+		if (recordon==0)
+		{j=0;
+		}
+		while(!rec);
+	}
+}
+
+void record(void)
+{
+	
+	unsigned char key, row, col;
+	showrec=0;
+	if (recordon==0)	 
+	{	 	
+		
+		beep=0;
+		P1=0xf0;
+		col=P1;
+		P1=0x0f;
+		row=P1;
+		key=col+row;
+		
+		if (key!=0xff)
+		{ 	
+			rtable[j]=key;
+			showrec=~showrec;
+			
+		 	j++;
+			while(P1!=0x0f);
+		}
+	}
+}
+
+void playrec(void)
+{
+	unsigned char l,u;
+	//unsigned int i1;
+	unsigned char period, key;
+	if (prec==0)
+	{
+		for (l=0;l<j+1;l++)
+		{
+			key=rtable[l];
+			
+			for (u=0;u<16;u++)
+			{
+				if (key==keytable[u])
+				{
+				period=ptable[u];
+				s=T[0]/period;
+				}
+			}	
+			for (i=0;i<s+1;i++)
+			{
+				beep=!beep;
+				sdelay(period);
+				sdelay(period);  
+			}
+		 }
+	}
+}
 
 

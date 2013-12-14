@@ -61,7 +61,7 @@ void  SCH_Report_Status(void);
 // during the execution of the program
 //
 // MUST BE ADJUSTED FOR EACH NEW PROJECT
-#define SCH_MAX_TASKS   (3)   
+#define SCH_MAX_TASKS   (10)   
  
 #endif
                               
