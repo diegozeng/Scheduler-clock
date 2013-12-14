@@ -39,7 +39,7 @@ Further improvement:
     
     (c) Press indicated LED (blue)
     
-    (d) Record indicated LED (Green or Red? I forget)
+    (d) Record indicated LED (Green or Red? I forgot)
     
 Temporary function:
 
